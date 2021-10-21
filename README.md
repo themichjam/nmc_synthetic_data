@@ -56,22 +56,22 @@ Information about data collection methods, details of data download and any othe
 ### The ```imgs``` folder
 
 ### The ```output``` folder
+Outputs from our R scripts such as plots, HTML files and data summaries are saved in this directory. This helps us and our collaborators distinguish what files are outputs and which are source files.
 
 ### The ```R``` folder
+Sometimes also called ```src```. This is an optional directory where we save all of the custom R functions we’ve written for the current analysis. These can then be sourced into R using the source() function.
 
 ### The ```rmd``` folder
+An optional directory where we save our R ```markdown``` documents.
 
 ### The ```scripts``` folder
+All of the main R ```scripts``` we have written for the current project are saved here.
 
+### References for Open Directory Practices 
 
+*[R Bloggers: Structuring R Projects](https://www.r-bloggers.com/2018/08/structuring-r-projects/0)
+*[Telethon Kids:How do you Structure your R Projects? ](https://telethonkids.wordpress.com/2019/07/24/how-do-you-organise-your-r-project-this-is-what-we-do/)
+*[Intro2R: Directory Structures](https://intro2r.com/dir-struct.html)
+*[Nice R Code: Designing Projects](https://nicercode.github.io/blog/2013-04-05-projects/)
 
- 
-
-R - This is an optional directory where we save all of the custom R functions we’ve written for the current analysis. These can then be sourced into R using the source() function.
-
-Rmd - An optional directory where we save our R markdown documents.
-
-scripts - All of the main R scripts we have written for the current project are saved here.
-
-output - Outputs from our R scripts such as plots, HTML files and data summaries are saved in this directory. This helps us and our collaborators distinguish what files are outputs and which are source files.
 
