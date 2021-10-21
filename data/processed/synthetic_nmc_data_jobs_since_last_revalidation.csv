@@ -1,0 +1,179 @@
+scope_of_practice,work_setting,employment_type,is_this_their_current_practice,employer_postcode,organisation_name,organisation_country
+Direct clinical care or management – public health,Trade union or professional body,Self employed,FALSE,testpostcode1,Test organisation 2,England
+Direct clinical care or management – children’s and neo-natal nursing,Inspectorate or regulator,Self employed,TRUE,testpostcode1,Test organisation 2,Wales
+Direct clinical care or management – school nursing,Occupational health,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,Northern Ireland
+Policy,Military,Volunteering,FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Quality assurance or inspection,Ambulance service,Employed via an agency,TRUE,testpostcode1,Test organisation 2,Northern Ireland
+Education,Police,Volunteering,TRUE,testpostcode1,Test organisation 1,England
+Direct clinical care or management – mental health nursing,Trade union or professional body,Volunteering,TRUE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – school nursing,"Community setting, including district nursing and community psychiatric nursing",Self employed,TRUE,testpostcode2,Test organisation 2,Scotland
+Direct clinical care or management – learning disabilities nursing,Other,Volunteering,FALSE,testpostcode2,Test organisation 2,Outside UK
+Direct clinical care or management – other,Trade union or professional body,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 1,Northern Ireland
+Direct clinical care or management – midwifery,Other,Employed via an agency,TRUE,testpostcode2,Test organisation 2,Outside UK
+Other,Other,Self employed,TRUE,testpostcode1,Test organisation 1,Wales
+Quality assurance or inspection,Governing body or other leadership,Self employed,FALSE,testpostcode1,Test organisation 1,Northern Ireland
+Direct clinical care or management – children’s and neo-natal nursing,Ambulance service,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 2,Outside UK
+Direct clinical care or management – learning disabilities nursing,Public health organisation,Self employed,TRUE,testpostcode2,Test organisation 2,England
+Direct clinical care or management – public health,GP practice or other primary care,Volunteering,FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – school nursing,Hospital or other secondary care,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,England
+Quality assurance or inspection,GP practice or other primary care,Self employed,FALSE,testpostcode1,Test organisation 2,Outside UK
+Quality assurance or inspection,Public health organisation,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,Outside UK
+Quality assurance or inspection,Consultancy,Employed via an agency,TRUE,testpostcode1,Test organisation 2,England
+Direct clinical care or management – children’s and neo-natal nursing,Consultancy,Volunteering,TRUE,testpostcode1,Test organisation 1,Scotland
+Quality assurance or inspection,Hospital or other secondary care,Volunteering,FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – learning disabilities nursing,Governing body or other leadership,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 1,England
+Direct clinical care or management – adult and general care nursing,Voluntary or charity sector,Employed via an agency,FALSE,testpostcode2,Test organisation 2,Wales
+Education,Care home sector,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 2,Outside UK
+Direct clinical care or management – occupational health,Ambulance service,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,Wales
+Quality assurance or inspection,Governing body or other leadership,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 2,Scotland
+Other,"Community setting, including district nursing and community psychiatric nursing",Self employed,FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – adult and general care nursing,GP practice or other primary care,Employed via an agency,TRUE,testpostcode1,Test organisation 1,Northern Ireland
+Direct clinical care or management – other,Telephone or e-health advice,Volunteering,FALSE,testpostcode2,Test organisation 1,Northern Ireland
+Other,Occupational health,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 2,England
+Research,Prison,Volunteering,FALSE,testpostcode2,Test organisation 1,England
+Direct clinical care or management – health visiting,Hospital or other secondary care,Self employed,FALSE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – midwifery,Policy organisation,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,England
+Direct clinical care or management – adult and general care nursing,University or other research facility,Volunteering,TRUE,testpostcode2,Test organisation 1,Scotland
+Direct clinical care or management – mental health nursing,Police,Self employed,TRUE,testpostcode1,Test organisation 1,Northern Ireland
+Direct clinical care or management – occupational health,University or other research facility,Self employed,FALSE,testpostcode2,Test organisation 1,Outside UK
+Research,Governing body or other leadership,Self employed,TRUE,testpostcode2,Test organisation 1,Outside UK
+Commissioning,Specialist or other tertiary care including hospice,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,England
+Research,Cosmetic or aesthetic sector,Self employed,FALSE,testpostcode2,Test organisation 2,England
+Policy,School,Volunteering,FALSE,testpostcode2,Test organisation 1,Wales
+Quality assurance or inspection,Inspectorate or regulator,Self employed,TRUE,testpostcode1,Test organisation 1,Northern Ireland
+Policy,Public health organisation,Employed via an agency,FALSE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – learning disabilities nursing,"Community setting, including district nursing and community psychiatric nursing",Employed via an agency,FALSE,testpostcode1,Test organisation 2,Scotland
+Other,Maternity unit or birth centre,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 1,Northern Ireland
+Direct clinical care or management – learning disabilities nursing,Occupational health,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,Outside UK
+Research,Military,Employed via an agency,FALSE,testpostcode1,Test organisation 2,Northern Ireland
+Commissioning,Cosmetic or aesthetic sector,Self employed,FALSE,testpostcode1,Test organisation 2,Outside UK
+Direct clinical care or management – adult and general care nursing,School,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 1,Northern Ireland
+Direct clinical care or management – adult and general care nursing,Ambulance service,Employed via an agency,TRUE,testpostcode1,Test organisation 2,Outside UK
+Direct clinical care or management – adult and general care nursing,Cosmetic or aesthetic sector,Employed via an agency,TRUE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – learning disabilities nursing,Policy organisation,Employed via an agency,FALSE,testpostcode1,Test organisation 2,Outside UK
+Direct clinical care or management – children’s and neo-natal nursing,University or other research facility,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 1,England
+Direct clinical care or management – mental health nursing,Police,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 1,Outside UK
+Commissioning,Maternity unit or birth centre,Employed via an agency,TRUE,testpostcode2,Test organisation 1,Scotland
+Direct clinical care or management – occupational health,Care home sector,Employed via an agency,FALSE,testpostcode2,Test organisation 2,Scotland
+Direct clinical care or management – occupational health,Governing body or other leadership,Self employed,TRUE,testpostcode2,Test organisation 1,Wales
+Direct clinical care or management – health visiting,Other,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,Northern Ireland
+Direct clinical care or management – health visiting,Consultancy,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 2,England
+Direct clinical care or management – health visiting,Hospital or other secondary care,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,England
+Direct clinical care or management – health visiting,Hospital or other secondary care,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,Northern Ireland
+Education,Voluntary or charity sector,Volunteering,FALSE,testpostcode1,Test organisation 1,England
+Direct clinical care or management – learning disabilities nursing,Consultancy,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Policy,Other,Employed via an agency,TRUE,testpostcode1,Test organisation 1,England
+Education,Occupational health,Volunteering,FALSE,testpostcode1,Test organisation 2,Wales
+Commissioning,Military,Employed via an agency,TRUE,testpostcode1,Test organisation 2,England
+Other,Inspectorate or regulator,Self employed,FALSE,testpostcode2,Test organisation 1,England
+Commissioning,School,Employed via an agency,FALSE,testpostcode2,Test organisation 2,England
+Direct clinical care or management – midwifery,Consultancy,Volunteering,FALSE,testpostcode1,Test organisation 1,England
+Education,"Community setting, including district nursing and community psychiatric nursing",Employed via an agency,TRUE,testpostcode1,Test organisation 1,Scotland
+Commissioning,Other,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,England
+Direct clinical care or management – children’s and neo-natal nursing,Trade union or professional body,Self employed,TRUE,testpostcode2,Test organisation 1,Outside UK
+Other,Inspectorate or regulator,Volunteering,FALSE,testpostcode1,Test organisation 1,Scotland
+Direct clinical care or management – occupational health,Care home sector,Volunteering,TRUE,testpostcode2,Test organisation 1,Scotland
+Direct clinical care or management – mental health nursing,Military,Volunteering,TRUE,testpostcode1,Test organisation 1,Outside UK
+Direct clinical care or management – other,Consultancy,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 2,Wales
+Direct clinical care or management – school nursing,Hospital or other secondary care,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Education,Specialist or other tertiary care including hospice,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,Wales
+Commissioning,Insurance or legal,Volunteering,FALSE,testpostcode2,Test organisation 1,Scotland
+Policy,School,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 1,Outside UK
+Other,Maternity unit or birth centre,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 1,Northern Ireland
+Direct clinical care or management – midwifery,Prison,Employed via an agency,TRUE,testpostcode2,Test organisation 1,Outside UK
+Direct clinical care or management – mental health nursing,Trade union or professional body,Volunteering,FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – mental health nursing,Inspectorate or regulator,Employed via an agency,TRUE,testpostcode2,Test organisation 1,Wales
+Other,Specialist or other tertiary care including hospice,Employed via an agency,FALSE,testpostcode2,Test organisation 1,England
+Direct clinical care or management – other,Consultancy,Self employed,FALSE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – occupational health,Ambulance service,Volunteering,FALSE,testpostcode2,Test organisation 1,Northern Ireland
+Quality assurance or inspection,Occupational health,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,Outside UK
+Quality assurance or inspection,Voluntary or charity sector,Employed via an agency,TRUE,testpostcode2,Test organisation 1,Northern Ireland
+Education,Policy organisation,Self employed,TRUE,testpostcode2,Test organisation 2,Northern Ireland
+Quality assurance or inspection,Insurance or legal,Employed via an agency,TRUE,testpostcode2,Test organisation 1,Scotland
+Direct clinical care or management – other,School,Volunteering,TRUE,testpostcode1,Test organisation 2,Wales
+Direct clinical care or management – adult and general care nursing,Military,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – occupational health,"Community setting, including district nursing and community psychiatric nursing",Volunteering,FALSE,testpostcode2,Test organisation 2,Outside UK
+Direct clinical care or management – other,Ambulance service,Employed via an agency,TRUE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – other,Occupational health,Self employed,TRUE,testpostcode1,Test organisation 1,England
+Direct clinical care or management – occupational health,Occupational health,Self employed,TRUE,testpostcode2,Test organisation 1,Wales
+Quality assurance or inspection,Insurance or legal,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 2,Northern Ireland
+Direct clinical care or management – occupational health,School,Self employed,FALSE,testpostcode1,Test organisation 1,Scotland
+Direct clinical care or management – other,Governing body or other leadership,Employed via an agency,TRUE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – mental health nursing,Cosmetic or aesthetic sector,Volunteering,TRUE,testpostcode2,Test organisation 2,Wales
+Research,Ambulance service,Employed via an agency,TRUE,testpostcode2,Test organisation 2,Wales
+Commissioning,Policy organisation,Employed via an agency,TRUE,testpostcode2,Test organisation 1,Scotland
+Education,School,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 2,Wales
+Direct clinical care or management – mental health nursing,Private domestic setting,Self employed,FALSE,testpostcode2,Test organisation 1,Wales
+Other,Hospital or other secondary care,Volunteering,FALSE,testpostcode1,Test organisation 2,England
+Policy,GP practice or other primary care,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 2,Wales
+Direct clinical care or management – learning disabilities nursing,Telephone or e-health advice,Volunteering,TRUE,testpostcode2,Test organisation 1,England
+Direct clinical care or management – school nursing,Ambulance service,Employed via an agency,TRUE,testpostcode1,Test organisation 2,England
+Direct clinical care or management – other,Specialist or other tertiary care including hospice,Self employed,TRUE,testpostcode2,Test organisation 2,Wales
+Direct clinical care or management – adult and general care nursing,Ambulance service,Self employed,FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – children’s and neo-natal nursing,GP practice or other primary care,Self employed,TRUE,testpostcode1,Test organisation 2,England
+Research,Policy organisation,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 2,England
+Education,Policy organisation,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 2,Scotland
+Direct clinical care or management – mental health nursing,Other,Self employed,FALSE,testpostcode2,Test organisation 2,Outside UK
+Direct clinical care or management – public health,Hospital or other secondary care,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 2,Northern Ireland
+Direct clinical care or management – adult and general care nursing,Insurance or legal,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 2,Outside UK
+Other,Other,Employed via an agency,FALSE,testpostcode2,Test organisation 1,Northern Ireland
+Direct clinical care or management – school nursing,Ambulance service,Employed via an agency,FALSE,testpostcode2,Test organisation 2,Outside UK
+Research,Public health organisation,Volunteering,TRUE,testpostcode2,Test organisation 1,Wales
+Education,GP practice or other primary care,Employed via an agency,FALSE,testpostcode1,Test organisation 2,Outside UK
+Direct clinical care or management – midwifery,School,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 2,Wales
+Education,Other,Employed via an agency,TRUE,testpostcode1,Test organisation 2,Scotland
+Direct clinical care or management – midwifery,Specialist or other tertiary care including hospice,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,Wales
+Other,Maternity unit or birth centre,Employed via an agency,FALSE,testpostcode1,Test organisation 1,Scotland
+Research,"Community setting, including district nursing and community psychiatric nursing",Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,Scotland
+Direct clinical care or management – adult and general care nursing,Police,Self employed,FALSE,testpostcode1,Test organisation 1,Northern Ireland
+Policy,Policy organisation,Self employed,FALSE,testpostcode1,Test organisation 1,Scotland
+Direct clinical care or management – adult and general care nursing,Maternity unit or birth centre,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 2,Wales
+Policy,Governing body or other leadership,Employed via an agency,TRUE,testpostcode1,Test organisation 1,Scotland
+Direct clinical care or management – midwifery,Hospital or other secondary care,Self employed,TRUE,testpostcode2,Test organisation 1,England
+Education,School,Self employed,TRUE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – mental health nursing,Hospital or other secondary care,Employed via an agency,TRUE,testpostcode1,Test organisation 2,Outside UK
+Policy,Hospital or other secondary care,Volunteering,TRUE,testpostcode2,Test organisation 1,England
+Direct clinical care or management – health visiting,Care home sector,Self employed,FALSE,testpostcode2,Test organisation 1,Wales
+Direct clinical care or management – adult and general care nursing,University or other research facility,Volunteering,FALSE,testpostcode1,Test organisation 1,Outside UK
+Direct clinical care or management – occupational health,Other,Employed via an agency,TRUE,testpostcode1,Test organisation 2,Outside UK
+Direct clinical care or management – mental health nursing,Trade union or professional body,Self employed,TRUE,testpostcode1,Test organisation 2,Outside UK
+Education,Occupational health,Self employed,FALSE,testpostcode1,Test organisation 1,Wales
+Policy,Inspectorate or regulator,Self employed,FALSE,testpostcode1,Test organisation 1,Scotland
+Direct clinical care or management – midwifery,Insurance or legal,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,Outside UK
+Commissioning,Care home sector,Volunteering,FALSE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – public health,Maternity unit or birth centre,Self employed,TRUE,testpostcode2,Test organisation 1,Wales
+Direct clinical care or management – health visiting,Hospital or other secondary care,Employed via an agency,TRUE,testpostcode1,Test organisation 1,England
+Quality assurance or inspection,"Community setting, including district nursing and community psychiatric nursing",Employed via an agency,FALSE,testpostcode2,Test organisation 1,England
+Direct clinical care or management – school nursing,Occupational health,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,England
+Direct clinical care or management – children’s and neo-natal nursing,Maternity unit or birth centre,Self employed,FALSE,testpostcode1,Test organisation 2,Wales
+Direct clinical care or management – midwifery,Private domestic setting,Volunteering,TRUE,testpostcode1,Test organisation 2,Outside UK
+Other,Specialist or other tertiary care including hospice,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,Wales
+Research,Occupational health,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – occupational health,Inspectorate or regulator,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 1,Scotland
+Quality assurance or inspection,Policy organisation,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – midwifery,Consultancy,Self employed,TRUE,testpostcode2,Test organisation 2,Outside UK
+Quality assurance or inspection,Policy organisation,Employed via an agency,TRUE,testpostcode1,Test organisation 1,Wales
+Commissioning,Telephone or e-health advice,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,Wales
+Commissioning,Insurance or legal,Employed via an agency,FALSE,testpostcode1,Test organisation 2,Northern Ireland
+Policy,Private domestic setting,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,Northern Ireland
+Direct clinical care or management – public health,School,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,Scotland
+Direct clinical care or management – public health,School,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,Wales
+Commissioning,Occupational health,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,Scotland
+Direct clinical care or management – mental health nursing,Occupational health,Employed via an agency,FALSE,testpostcode2,Test organisation 2,Outside UK
+Direct clinical care or management – learning disabilities nursing,Cosmetic or aesthetic sector,Employed via an agency,TRUE,testpostcode2,Test organisation 2,Outside UK
+Direct clinical care or management – public health,Telephone or e-health advice,Employed directly (not via UK agency),FALSE,testpostcode2,Test organisation 1,Scotland
+Direct clinical care or management – learning disabilities nursing,"Community setting, including district nursing and community psychiatric nursing",Employed via an agency,FALSE,testpostcode1,Test organisation 2,Northern Ireland
+Direct clinical care or management – other,Insurance or legal,Volunteering,FALSE,testpostcode2,Test organisation 2,Northern Ireland
+Direct clinical care or management – mental health nursing,Hospital or other secondary care,Volunteering,TRUE,testpostcode2,Test organisation 1,Northern Ireland
+Direct clinical care or management – school nursing,School,Volunteering,FALSE,testpostcode2,Test organisation 2,Wales
+Direct clinical care or management – health visiting,Ambulance service,Volunteering,TRUE,testpostcode1,Test organisation 2,Northern Ireland
+Research,"Community setting, including district nursing and community psychiatric nursing",Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 1,England
+Research,School,Employed directly (not via UK agency),FALSE,testpostcode1,Test organisation 2,Scotland
+Direct clinical care or management – learning disabilities nursing,Consultancy,Self employed,TRUE,testpostcode2,Test organisation 2,Scotland
+Policy,Cosmetic or aesthetic sector,Volunteering,FALSE,testpostcode2,Test organisation 1,Scotland
+Quality assurance or inspection,Cosmetic or aesthetic sector,Employed via an agency,FALSE,testpostcode2,Test organisation 2,Wales
+Commissioning,Cosmetic or aesthetic sector,Volunteering,FALSE,testpostcode1,Test organisation 2,England
+Quality assurance or inspection,Police,Employed directly (not via UK agency),TRUE,testpostcode1,Test organisation 2,Scotland
+Education,Occupational health,Volunteering,FALSE,testpostcode1,Test organisation 1,Wales
+Direct clinical care or management – occupational health,Insurance or legal,Employed directly (not via UK agency),TRUE,testpostcode2,Test organisation 1,Wales
+Dire
