@@ -69,9 +69,9 @@ All of the main R ```scripts``` we have written for the current project are save
 
 ### References for Open Directory Practices 
 
-*[R Bloggers: Structuring R Projects](https://www.r-bloggers.com/2018/08/structuring-r-projects/0)
-*[Telethon Kids:How do you Structure your R Projects? ](https://telethonkids.wordpress.com/2019/07/24/how-do-you-organise-your-r-project-this-is-what-we-do/)
-*[Intro2R: Directory Structures](https://intro2r.com/dir-struct.html)
-*[Nice R Code: Designing Projects](https://nicercode.github.io/blog/2013-04-05-projects/)
+[R Bloggers: Structuring R Projects](https://www.r-bloggers.com/2018/08/structuring-r-projects/0)
+[Telethon Kids:How do you Structure your R Projects? ](https://telethonkids.wordpress.com/2019/07/24/how-do-you-organise-your-r-project-this-is-what-we-do/)
+[Intro2R: Directory Structures](https://intro2r.com/dir-struct.html)
+[Nice R Code: Designing Projects](https://nicercode.github.io/blog/2013-04-05-projects/)
 
 
