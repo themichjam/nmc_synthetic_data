@@ -493,7 +493,8 @@ n_fitness_to_practice <- as.integer(0.01 * n)  # assuming 1% of nurses have fitn
 n_revalidation <- as.integer(n * 4)  # assuming 4 revalidation entries per nurse on average
 n_jobs_since_last_revalidation <- as.integer(1.5 * n)  # assuming 1.5 jbs per nurse on average
 
-# TODO: make spines for linking synthesised datasets to individuals!
+# TODO: make spines for linking synthesised datasets
+#to individuals!
 
 ## Enter probabilities into `simstudy`
 
@@ -586,10 +587,13 @@ ids_fitness_to_practice <-
 
 walk(
   .x = names(synthetic),
-  .f = ~write_csv(x = synthetic[[.x]], path = paste0("./data/processed/", "synthetic_nmc_data_", .x, ".csv"))
+  .f = ~write_csv(x = synthetic[[.x]], path = paste0("./data/processed/", "synthetic_", .x, ".csv"))
 )
 
 # read in data 
 
-nmc_personal <- read.csv("./data/processed/synthetic_nmc_data_personal_data.csv")
-nmc_fitness <- read.csv("./data/processed/synthetic_nmc_data_fitness_to_practice.csv")
+synthftp <- read.csv("./data/processed/synthetic_fitness_to_practice.csv")
+synthpd <- read.csv("./data/processed/synthetic_personal_data.csv")
+synthr <- read.csv("./data/processed/synthetic_revalidation.csv")
+synthjr <- read.csv("./data/processed/synthetic_jobs_since_last_revalidation.csv")
+synthlr <- read.csv("./data/processed/synthetic_leaving_and_rejoining.csv")
