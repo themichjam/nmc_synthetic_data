@@ -1,35 +1,39 @@
 # Load packages
 
-library(tidyverse)  # for tidy-style coding
-library(simstudy)  # for creating synthetic data
-library(formatR) # for formatting code
-tidy_source(width.cutoff = 50)
+library(tidyverse) # for tidy-style coding
+library(lubridate) # for creating dates
+library(simstudy) # for creating synthetic data
+library(styler) # for formatting code
+library(formatR) # for formatting notes
+library(questionr) # for processing and analysis of surveys
+library(randomNames) # for generating random names
+
 
 # Create subdirectory
 
-#ifelse(!dir.exists("synthetic_data"), dir.create("synthetic_data"), "Folder exists already")
+# ifelse(!dir.exists("synthetic_data"), dir.create("synthetic_data"), "Folder exists already")
 
 
 # Overview of variables available in NMC data
 
-#The variables are based on the document `Information
-#on our register and from revalidation_18-03-20.doc`.
-#Whilst we don't know the exact way the data are
-#structured, we can make a reasonable guess that the
-#data are split over several spreadsheets to conform
-#to a tidy one-record-per-row structure.
+# The variables are based on the document `Information
+# on our register and from revalidation_18-03-20.doc`.
+# Whilst we don't know the exact way the data are
+# structured, we can make a reasonable guess that the
+# data are split over several spreadsheets to conform
+# to a tidy one-record-per-row structure.
 
-#The below sections outline the likely way the data
-#are stored in separate spreadsheets or databases
-#(with the lists of variables copied from the above
-#file).
-#(Note: I copied these sections directly form the
-#Word document above; I manually added tabs to
-#reflect the level of original indentation, then
-#added asterisks to produce the required level of
-#indentation in `rmarkdown`; the regex used was
-#`^(\s*)(.{1,4}\.)` to find the indentation text and
-#`\1* \2` to insert an asterisk and space).
+# The below sections outline the likely way the data
+# are stored in separate spreadsheets or databases
+# (with the lists of variables copied from the above
+# file).
+# (Note: I copied these sections directly form the
+# Word document above; I manually added tabs to
+# reflect the level of original indentation, then
+# added asterisks to produce the required level of
+# indentation in `rmarkdown`; the regex used was
+# `^(\s*)(.{1,4}\.)` to find the indentation text and
+# `\1* \2` to insert an asterisk and space).
 
 ## Personal data
 
@@ -41,8 +45,8 @@ tidy_source(width.cutoff = 50)
 #  * c.	Country
 #* 4.	Profession
 #* 5.	Field of practice (when initially joined the register)
-#* 6.	Whether they have a specialist qualification (from those that we approve e.g specialist community public health nursing (SCPHN)) 
-#* 7.	Date of first registration to the NMC 
+#* 6.	Whether they have a specialist qualification (from those that we approve e.g specialist community public health nursing (SCPHN))
+#* 7.	Date of first registration to the NMC
 #* 8.	Dates that previously left and rejoined if relevant (including how long they had left for and whether they rejoined via the Return to Practice route or standard readmission)
 #  * a.	People can tell us they are leaving and also give us a reason why (Retirement; Currently not practising / opted not to practise; Ill health; Does not meet the revalidation requirements; Deceased; No Professional Indemnity Insurance. However, only around half of people who leave the register choose to tell us so – the other half either choose not to revalidate or not to pay their registration fee.
 #* 9.	Country of initial training
@@ -58,18 +62,18 @@ tidy_source(width.cutoff = 50)
 #  * e.	Religion
 #  * f.	Sexual orientation
 #  * g.	Gender identity
-  
+
 ### Dates previously left or rejoind
 
-#These probably need a separate table because there
-#will be multiple possible entries per individual;
-#these could be stored as episodes of leaving, with a
-#leaving date and a rejoining date, with associated
-#reasons, etc; the rejoining date can be left blank
-#if appropriate or if member has not rejoined since.
-#Alternatively it oculd be one-date-per-row, with a
-#separate field denoting whether this was a leaving
-#date or a rejoining date.
+# These probably need a separate table because there
+# will be multiple possible entries per individual;
+# these could be stored as episodes of leaving, with a
+# leaving date and a rejoining date, with associated
+# reasons, etc; the rejoining date can be left blank
+# if appropriate or if member has not rejoined since.
+# Alternatively it oculd be one-date-per-row, with a
+# separate field denoting whether this was a leaving
+# date or a rejoining date.
 #* 8.	Dates that previously left and rejoined if relevant (including how long they had left for and whether they rejoined via the Return to Practice route or standard readmission)
 #  * a.	People can tell us they are leaving and also give us a reason why (Retirement; Currently not practising / opted not to practise; Ill health; Does not meet the revalidation requirements; Deceased; No Professional Indemnity Insurance. However, only around half of people who leave the register choose to tell us so – the other half either choose not to revalidate or not to pay their registration fee.
 
@@ -85,9 +89,9 @@ tidy_source(width.cutoff = 50)
 
 ## Revalidation data
 
-#Revalidation is required every 3 years, so we get a snapshot of the individuals comprising the nursing & midwifery workforce every three years.
+# Revalidation is required every 3 years, so we get a snapshot of the individuals comprising the nursing & midwifery workforce every three years.
 
-#**TODO! CONFIRM FOLLOWING: The three years must be based on each indiviudal's date of first registration, so it's a snapshot of every individual every three years, rather than a 3-yearly snapshot of the workforce!**
+#** TODO! CONFIRM FOLLOWING: The three years must be based on each indiviudal's date of first registration, so it's a snapshot of every individual every three years, rather than a 3-yearly snapshot of the workforce!**
 
 #* 14.	At the point of revalidation (so every 3 years):
 #  * a.	Are they currently practising?
@@ -97,59 +101,59 @@ tidy_source(width.cutoff = 50)
 #    * iv.	Practising as a nurse in the UK
 #    * v.	Geographical locator (country and geographical region e.g. London-North Central)
 #  * b.	Do they wish to lapse their registration and if so why (People can tell us they are leaving and also give us a reason why (Retirement; Currently not practising / opted not to practise; Ill health; Does not meet the revalidation requirements; Deceased)
-#    * i.	People can partially lapse, e.g. drop one of their registration types if they are registered as both a nurse and midwife. 
+#    * i.	People can partially lapse, e.g. drop one of their registration types if they are registered as both a nurse and midwife.
 #    * ii.	For those saying they do not meet the revalidation requirement they are asked which revalidation requirement that they did not meet (Confirmation; CPD; Health and character declaration; Practice hours; Practice-related feedback; Professional indemnity arrangement declaration; Reflective discussion; Written reflective accounts)
 #  * c.	People are free to declare however many jobs they like, although most people only report those up to the 450 practice hours requirement. As such, this is not a complete picture of all of the jobs that a person may have done over the three years, nor is it necessarily those jobs in which they are currently employed. For each job they have to tell us:
 #    * i.	Scope of practice:
-#      * 1.	Commissioning; 
-#      * 2.	Direct clinical care or management – adult and general care nursing; 
-#      * 3.	Direct clinical care or management – children’s and neo-natal nursing; 
-#      * 4.	Direct clinical care or management – health visiting; 
-#      * 5.	Direct clinical care or management – learning disabilities nursing; 
-#      * 6.	Direct clinical care or management – mental health nursing; 
-#      * 7.	Direct clinical care or management – midwifery; 
-#      * 8.	Direct clinical care or management – occupational health; 
-#      * 9.	Direct clinical care or management – public health; 
-#      * 10.	Direct clinical care or management – school nursing; 
-#      * 11.	Direct clinical care or management – other; 
-#      * 12.	Education; 
-#      * 13.	Policy; 
-#      * 14.	Quality assurance or inspection; 
-#      * 15.	Research; 
+#      * 1.	Commissioning;
+#      * 2.	Direct clinical care or management – adult and general care nursing;
+#      * 3.	Direct clinical care or management – children’s and neo-natal nursing;
+#      * 4.	Direct clinical care or management – health visiting;
+#      * 5.	Direct clinical care or management – learning disabilities nursing;
+#      * 6.	Direct clinical care or management – mental health nursing;
+#      * 7.	Direct clinical care or management – midwifery;
+#      * 8.	Direct clinical care or management – occupational health;
+#      * 9.	Direct clinical care or management – public health;
+#      * 10.	Direct clinical care or management – school nursing;
+#      * 11.	Direct clinical care or management – other;
+#      * 12.	Education;
+#      * 13.	Policy;
+#      * 14.	Quality assurance or inspection;
+#      * 15.	Research;
 #      * 16.	Other
-#    * ii.	Work setting: 
-#      * 1.	Ambulance service; 
-#      * 2.	Care home sector; 
-#      * 3.	Community setting, including district nursing and community psychiatric nursing; 
-#      * 4.	Consultancy; 
-#      * 5.	Cosmetic or aesthetic sector; 
-#      * 6.	Governing body or other leadership; 
-#      * 7.	GP practice or other primary care; 
-#      * 8.	Hospital or other secondary care; 
-#      * 9.	Inspectorate or regulator; 
-#      * 10.	Insurance or legal; 
-#      * 11.	Maternity unit or birth centre; 
-#      * 12.	Military; 
-#      * 13.	Occupational health; 
-#      * 14.	Police; 
-#      * 15.	Policy organisation; 
-#      * 16.	Prison; 
-#      * 17.	Private domestic setting; 
+#    * ii.	Work setting:
+#      * 1.	Ambulance service;
+#      * 2.	Care home sector;
+#      * 3.	Community setting, including district nursing and community psychiatric nursing;
+#      * 4.	Consultancy;
+#      * 5.	Cosmetic or aesthetic sector;
+#      * 6.	Governing body or other leadership;
+#      * 7.	GP practice or other primary care;
+#      * 8.	Hospital or other secondary care;
+#      * 9.	Inspectorate or regulator;
+#      * 10.	Insurance or legal;
+#      * 11.	Maternity unit or birth centre;
+#      * 12.	Military;
+#      * 13.	Occupational health;
+#      * 14.	Police;
+#      * 15.	Policy organisation;
+#      * 16.	Prison;
+#      * 17.	Private domestic setting;
 #      * 18.	Public health organisation;
-#      * 19.	 School; 
-#      * 20.	Specialist or other tertiary care including hospice; 
-#      * 21.	Telephone or e-health advice; 
-#      * 22.	Trade union or professional body; 
-#      * 23.	University or other research facility; 
-#      * 24.	Voluntary or charity sector; 
+#      * 19.	 School;
+#      * 20.	Specialist or other tertiary care including hospice;
+#      * 21.	Telephone or e-health advice;
+#      * 22.	Trade union or professional body;
+#      * 23.	University or other research facility;
+#      * 24.	Voluntary or charity sector;
 #      * 25.	Other
 #    * iii.	Employment type:
-#      * 1.	Employed directly (not via UK agency); 
-#      * 2.	Employed via an agency; 
-#      * 3.	Self employed; 
+#      * 1.	Employed directly (not via UK agency);
+#      * 2.	Employed via an agency;
+#      * 3.	Self employed;
 #      * 4.	Volunteering
 #    * iv.	Dates (from and to but within the last three years)
-#    * v.	Is this the person’s current practice? 
+#    * v.	Is this the person’s current practice?
 #      * 1.	Yes
 #      * 2.	No
 #    * vi.	Postcode of employer
@@ -162,87 +166,87 @@ tidy_source(width.cutoff = 50)
 
 ### Jobs since last revalidation (past three years)
 
-#Since this can have as many entries as are needed, it should be a separate table also!
+# Since this can have as many entries as are needed, it should be a separate table also!
 
 #  * c.	People are free to declare however many jobs they like, although most people only report those up to the 450 practice hours requirement. As such, this is not a complete picture of all of the jobs that a person may have done over the three years, nor is it necessarily those jobs in which they are currently employed. For each job they have to tell us:
 #    * i.	Scope of practice:
-#      * 1.	Commissioning; 
-#      * 2.	Direct clinical care or management – adult and general care nursing; 
-#      * 3.	Direct clinical care or management – children’s and neo-natal nursing; 
-#      * 4.	Direct clinical care or management – health visiting; 
-#      * 5.	Direct clinical care or management – learning disabilities nursing; 
-#      * 6.	Direct clinical care or management – mental health nursing; 
-#      * 7.	Direct clinical care or management – midwifery; 
-#      * 8.	Direct clinical care or management – occupational health; 
-#      * 9.	Direct clinical care or management – public health; 
-#      * 10.	Direct clinical care or management – school nursing; 
-#      * 11.	Direct clinical care or management – other; 
-#      * 12.	Education; 
-#      * 13.	Policy; 
-#      * 14.	Quality assurance or inspection; 
-#      * 15.	Research; 
+#      * 1.	Commissioning;
+#      * 2.	Direct clinical care or management – adult and general care nursing;
+#      * 3.	Direct clinical care or management – children’s and neo-natal nursing;
+#      * 4.	Direct clinical care or management – health visiting;
+#      * 5.	Direct clinical care or management – learning disabilities nursing;
+#      * 6.	Direct clinical care or management – mental health nursing;
+#      * 7.	Direct clinical care or management – midwifery;
+#      * 8.	Direct clinical care or management – occupational health;
+#      * 9.	Direct clinical care or management – public health;
+#      * 10.	Direct clinical care or management – school nursing;
+#      * 11.	Direct clinical care or management – other;
+#      * 12.	Education;
+#      * 13.	Policy;
+#      * 14.	Quality assurance or inspection;
+#      * 15.	Research;
 #      * 16.	Other
-#    * ii.	Work setting: 
-#      * 1.	Ambulance service; 
-#      * 2.	Care home sector; 
-#      * 3.	Community setting, including district nursing and community psychiatric nursing; 
-#      * 4.	Consultancy; 
-#      * 5.	Cosmetic or aesthetic sector; 
-#      * 6.	Governing body or other leadership; 
-#      * 7.	GP practice or other primary care; 
-#      * 8.	Hospital or other secondary care; 
-#      * 9.	Inspectorate or regulator; 
-#      * 10.	Insurance or legal; 
-#      * 11.	Maternity unit or birth centre; 
-#      * 12.	Military; 
-#      * 13.	Occupational health; 
-#      * 14.	Police; 
-#      * 15.	Policy organisation; 
-#      * 16.	Prison; 
-#      * 17.	Private domestic setting; 
+#    * ii.	Work setting:
+#      * 1.	Ambulance service;
+#      * 2.	Care home sector;
+#      * 3.	Community setting, including district nursing and community psychiatric nursing;
+#      * 4.	Consultancy;
+#      * 5.	Cosmetic or aesthetic sector;
+#      * 6.	Governing body or other leadership;
+#      * 7.	GP practice or other primary care;
+#      * 8.	Hospital or other secondary care;
+#      * 9.	Inspectorate or regulator;
+#      * 10.	Insurance or legal;
+#      * 11.	Maternity unit or birth centre;
+#      * 12.	Military;
+#      * 13.	Occupational health;
+#      * 14.	Police;
+#      * 15.	Policy organisation;
+#      * 16.	Prison;
+#      * 17.	Private domestic setting;
 #      * 18.	Public health organisation;
-#      * 19.	 School; 
-#      * 20.	Specialist or other tertiary care including hospice; 
-#      * 21.	Telephone or e-health advice; 
-#      * 22.	Trade union or professional body; 
-#      * 23.	University or other research facility; 
-#      * 24.	Voluntary or charity sector; 
+#      * 19.	 School;
+#      * 20.	Specialist or other tertiary care including hospice;
+#      * 21.	Telephone or e-health advice;
+#      * 22.	Trade union or professional body;
+#      * 23.	University or other research facility;
+#      * 24.	Voluntary or charity sector;
 #      * 25.	Other
 #    * iii.	Employment type:
-#      * 1.	Employed directly (not via UK agency); 
-#      * 2.	Employed via an agency; 
-#      * 3.	Self employed; 
+#      * 1.	Employed directly (not via UK agency);
+#      * 2.	Employed via an agency;
+#      * 3.	Self employed;
 #      * 4.	Volunteering
 #   * iv.	Dates (from and to but within the last three years)
-#    * v.	Is this the person’s current practice? 
+#    * v.	Is this the person’s current practice?
 #      * 1.	Yes
 #      * 2.	No
 #    * vi.	Postcode of employer
 #    * vii.	Organisation name (free text response)
 #    * viii.	Organisation address (we know that this is not always the specific site/location where people work, people often add the address of the head office for example)
 #    * ix.	Country (drop down menu)
-  
+
 # Defining NMC variables
 
-#Next we define the above lists as lists of variables
-#and category levels.
+# Next we define the above lists as lists of variables
+# and category levels.
 
 ## How do we define categorical variables?
 
-#One way of adding a definition of variable `xCat`
-#below with three levels with proportions 0.3, 0.2
-#and 0.5. The level labels are added later, when
-#generating data. `simstudy` separates the
-#distribution logic from the way a variable is
-#instantiated.
+# One way of adding a definition of variable `xCat`
+# below with three levels with proportions 0.3, 0.2
+# and 0.5. The level labels are added later, when
+# generating data. `simstudy` separates the
+# distribution logic from the way a variable is
+# instantiated.
 
-#`def <- defData(def, varname = "xCat", formula = "0.3;0.2;0.5", dist = "categorical")`
-#`def <- genFactor(def, "xCat", labels = c("one", "two", "three"))`
+# `def <- defData(def, varname = "xCat", formula = "0.3;0.2;0.5", dist = "categorical")`
+# `def <- genFactor(def, "xCat", labels = c("one", "two", "three"))`
 
-#For our purposes (and to be able to use the same
-#definition with other packages if needed), we can
-#define the variables & levels as lists of character
-#vectors.
+# For our purposes (and to be able to use the same
+# definition with other packages if needed), we can
+# define the variables & levels as lists of character
+# vectors.
 
 ## initialise list of variables
 variables <- list()
@@ -251,22 +255,88 @@ variables <- list()
 
 ## Personal data
 
+## Create Population Spine
+
+# this generates random names
+unique_names <- randomNames(5e3L,
+            which.names = "both",
+            name.sep = ", ",
+            sample.with.replacement = TRUE,
+            return.complete.data = FALSE)
+# Works
+unique_names
+
+# sort alphebetically
+name <- str_sort(
+  unique_names,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE,
+) 
+name
 
 ## this generates a set of unique pins
-generate_unique_nmc_pins <- function(n) {
+generate_unique_pins <- function(n) {
   # number <- runif(n = n, min=0, max = (1e6)-1)
-  number <- sample(x = seq(from=0, to=(1e6)-1, by=1), size = n, replace = FALSE)
-  number_6digit <- str_pad(number, width=6, pad = "0")
-  letter1 <- sample(x=LETTERS,size=n,replace=TRUE)
-  letter2 <- sample(x=LETTERS,size=n,replace=TRUE)
+  number <- sample(x = seq(from = 0, to = (1e6) - 1, by = 1), size = n, replace = FALSE)
+  number_6digit <- str_pad(number, width = 6, pad = "0")
+  letter1 <- sample(x = LETTERS, size = n, replace = TRUE)
+  letter2 <- sample(x = LETTERS, size = n, replace = TRUE)
   return(
-    paste0(str_sub(number_6digit, 1, 2),letter1, str_sub(number_6digit, 3, 6),letter2)
+    paste0(str_sub(number_6digit, 1, 2), letter1, str_sub(number_6digit, 3, 6), letter2)
   )
 }
 
+# create pins
+nmc_pins <- generate_unique_pins(5e3L)
+nmc_pins
+pin <- str_sort(
+  nmc_pins,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE,
+) 
+pin
+
+# create set pins
+#pin_number <- c(nmc_pins)
+
+# create set names
+#unique_names <- c(random_names)
+
+# create dates
+date_first <- as_datetime( runif(5e3L, 1546290000, 1577739600))
+joined <- str_sort(
+  date_first,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE,
+) 
+joined
+
+# create set dates
+#join_datetime <- c(date_test)
+
+# create spine
+synthetic_spine <- data.frame(name, pin, joined, stringsAsFactors=FALSE)
+
+# check
+view(synthetic_spine)
+str(synthetic_spine)
+
+# save
+write_csv(synthetic_spine, "./data/processed/synthetic_spine.csv")
+
+## create datasets
+
+# personal data 
 variables$personal_data <- list(
-  name = "",  # these can be generated using randomNames package
-  pin_number = "",  # this is in format of 00X0000X where 0 is a digit and X is a letter
+  name = c(name),  # these can be generated using randomNames package
+  pin = c(pin),  # this is in format of 00X0000X where 0 is a digit and X is a letter
+  joined = c(joined),
   address_postcode = c("testpostcode1","testpostcode2"),  # TODO; find a list of all possible postcodes
   address_county = c("Nonexistentshire","Nonexistentland","N-on-existent"),  # TODO: find a list of all possible counties
   address_country = c("Scotland","England","Wales","Northern Ireland"),  # TODO: Isle of Man, other jurisdictions? do they count
@@ -313,7 +383,7 @@ variables$personal_data <- list(
     "SCLD: Specialist practitioner: Community learning disabilities nursing",
     "SPCC: Specialist practitioner: Community children’s nursing",
     "SPDN: Specialist practitioner: District nursing"
-    ),
+  ),
   date_registration_to_nmc = c("testdate1","testdate2"),  # date variable
   # dates_previously_left_and_rejoined,   # this goes in a separate table b/c there are multiple entries possible
   country_of_initial_training = c("Scotland","England","Wales","Northern Ireland","Outside UK"),
@@ -331,42 +401,52 @@ variables$personal_data <- list(
 )
 
 
+
 ### Leaving and rejoining dates & reasons
 
 variables$leaving_and_rejoining <- list(
+  name = c(name),  # these can be generated using randomNames package
+  pin = c(pin),  # this is in format of 00X0000X where 0 is a digit and X is a letter
+  joined = c(joined),
   date_of_leaving = "",
   date_of_rejoining = "",
-  reason_for_leaving = c("Retirement", "Currently not practising / opted not to practise", "Ill health", "Does not meet the revalidation requirements", "Deceased", "No Professional Indemnity Insurance")  # However, only around half of people who leave the register choose to tell us so – the other half either choose not to revalidate or not to pay their registration fee.
+  reason_for_leaving = c("Retirement", "Currently not practising / opted not to practise", "Ill health", "Does not meet the revalidation requirements", "Deceased", "No Professional Indemnity Insurance") # However, only around half of people who leave the register choose to tell us so – the other half either choose not to revalidate or not to pay their registration fee.
 )
 
 
 ## Fitness to practice
 
 
-variables$fitness_to_practice <- list(  # TODO: complete this from structured data held by NMC
-  source_of_referral = c("Employer","Member fo the public"),  # (e.g. employer, member of the public etc)
-  reason_for_referral = c("Reason1","Reason2"),
-  allegation_type = c("allegationtype1","allegationtype2"),
-  employer_information = c("Information from employer","") # (although we only had this information for around 25% of the cases in the dataset we’ve used for the EDI research)
+variables$fitness_to_practice <- list( # TODO: complete this from structured data held by NMC
+  name = c(name),  # these can be generated using randomNames package
+  pin = c(pin),  # this is in format of 00X0000X where 0 is a digit and X is a letter
+  joined = c(joined),
+  source_of_referral = c("Employer", "Member fo the public"), # (e.g. employer, member of the public etc)
+  reason_for_referral = c("Reason1", "Reason2"),
+  allegation_type = c("allegationtype1", "allegationtype2"),
+  employer_information = c("Information from employer", "") # (although we only had this information for around 25% of the cases in the dataset we’ve used for the EDI research)
 )
 
 ## Revalidation
 
 variables$revalidation <- list(
+  name = c(name),  # these can be generated using randomNames package
+  pin = c(pin),  # this is in format of 00X0000X where 0 is a digit and X is a letter
+  joined = c(joined),
   are_they_currently_practising = c(TRUE, FALSE),
   curently_practising = c(
     "Midwife in UK & have submitted intention to practise form",
     "Nurse outside the UK",
     "Midwife outside the UK",
     "Nurse inside the UK"
-    ),
-  currently_practising_geographical_locator = "",  # TODO: (country and geographical region e.g. London-North Central)
+  ),
+  currently_practising_geographical_locator = "", # TODO: (country and geographical region e.g. London-North Central)
   wish_to_lapse_registration = c("Yes", "No", "Partial lapse"),
   wish_to_lapse_reason = c("Retirement", "Currently not practising / opted not to practise", "Ill health", "Does not meet the revalidation requirements", "Deceased"),
   wish_to_partially_lapse_which_part = c("Nurse", "Midwife"),
   which_revalidation_requirement_not_met = c("Confirmation", "CPD", "Health and character declaration", "Practice hours", "Practice-related feedback", "Professional indemnity arrangement declaration", "Reflective discussion", "Written reflective accounts"),
-  exceptional_circumstances_requested = c(TRUE,FALSE),
-  exceptional_circumstances_awarded = c(TRUE,FALSE),
+  exceptional_circumstances_requested = c(TRUE, FALSE),
+  exceptional_circumstances_awarded = c(TRUE, FALSE),
   police_charges_cautions_or_convictions = "",
   determinations_by_other_regulators = ""
 )
@@ -374,6 +454,9 @@ variables$revalidation <- list(
 ### Jobs since last revalidation (past three years)
 
 variables$jobs_since_last_revalidation <- list(
+  name = c(name),  # these can be generated using randomNames package
+  pin = c(pin),  # this is in format of 00X0000X where 0 is a digit and X is a letter
+  joined = c(joined),
   scope_of_practice = c(
     "Commissioning",
     "Direct clinical care or management – adult and general care nursing",
@@ -428,10 +511,10 @@ variables$jobs_since_last_revalidation <- list(
   date_start = "",
   date_end = "",
   is_this_their_current_practice = c(TRUE, FALSE),
-  employer_postcode = c("testpostcode1","testpostcode2"),
-  organisation_name = c("Test organisation 1","Test organisation 2"),
-  organisation_address = "",  # Organisation address (we know that this is not always the specific site/location where people work, people often add the address of the head office for example)
-  organisation_country = c("Scotland","England","Wales","Northern Ireland", "Outside UK")  # maybe any country more appropriate?
+  employer_postcode = c("testpostcode1", "testpostcode2"),
+  organisation_name = c("Test organisation 1", "Test organisation 2"),
+  organisation_address = "", # Organisation address (we know that this is not always the specific site/location where people work, people often add the address of the head office for example)
+  organisation_country = c("Scotland", "England", "Wales", "Northern Ireland", "Outside UK") # maybe any country more appropriate?
 )
 
 # Creating dataset with `simstudy`
@@ -443,14 +526,14 @@ variables$jobs_since_last_revalidation <- list(
 
 return_equal_probabilities_for_items <- function(some_items) {
   n <- length(some_items)
-  rep(x = 1/n, times = n)
+  rep(x = 1 / n, times = n)
 }
 
 probabilities_tbl <- list()
 
 probabilities_tbl$personal_data <- tribble(
   ~variable, ~labels, ~odds,
-  "profession", c("Nurse","Midwife"), c(0.93, 0.7)
+  "profession", c("Nurse", "Midwife"), c(0.93, 0.7)
 )
 
 # a bit convoluted, but for every dataset in variables, go through the variables within the dataset, and run return_equal_probabilities_for_items
@@ -472,7 +555,7 @@ probabilities_for_rough_test <-
   map(
     .x = probabilities,
     .f = function(datasets) {
-        datasets[map_lgl(datasets, ~length(.x)!=1)]
+      datasets[map_lgl(datasets, ~ length(.x) != 1)]
     }
   )
 
@@ -480,30 +563,30 @@ probabilities_for_rough_test <-
 
 ## Define number of records to generate
 
-#We need to define how many data points we want. We
-#start with a value `n`, from which we'll then define
-#the sizes of the other datasets - past jobs, fitness
-#to practice, revalidations, etc.
+# We need to define how many data points we want. We
+# start with a value `n`, from which we'll then define
+# the sizes of the other datasets - past jobs, fitness
+# to practice, revalidations, etc.
 
 
 # n <- 1e5L  # too big
 n <- 5e3L
-n_leaving_and_rejoining <- as.integer(0.3 * n)  # 30 % of nurses have breaks in career?
-n_fitness_to_practice <- as.integer(0.01 * n)  # assuming 1% of nurses have fitness to practice entries
-n_revalidation <- as.integer(n * 4)  # assuming 4 revalidation entries per nurse on average
-n_jobs_since_last_revalidation <- as.integer(1.5 * n)  # assuming 1.5 jbs per nurse on average
+n_leaving_and_rejoining <- as.integer(0.3 * n) # 30 % of nurses have breaks in career?
+n_fitness_to_practice <- as.integer(0.01 * n) # assuming 1% of nurses have fitness to practice entries
+n_revalidation <- as.integer(n * 4) # assuming 4 revalidation entries per nurse on average
+n_jobs_since_last_revalidation <- as.integer(1.5 * n) # assuming 1.5 jbs per nurse on average
 
 # TODO: make spines for linking synthesised datasets
-#to individuals!
+# to individuals!
 
 ## Enter probabilities into `simstudy`
 
 create_synthetic_data_from_list <- function(list_of_probabilities) {
   reduce(
-    .x = names(list_of_probabilities)[-1],  # the first value is instead passed as .init below
-    .f = function(x, y) {  # note, x is a simstudy definition, and y is a name within the probabilities list
+    .x = names(list_of_probabilities)[-1], # the first value is instead passed as .init below
+    .f = function(x, y) { # note, x is a simstudy definition, and y is a name within the probabilities list
       # x carries over from the previous step, and we use the name y to define a new variable:
-      probabilities_formatted <- paste0(list_of_probabilities[[y]], collapse="; ")
+      probabilities_formatted <- paste0(list_of_probabilities[[y]], collapse = "; ")
       defData(dtDefs = x, varname = y, formula = probabilities_formatted, dist = "categorical")
     },
     .init = defData(varname = names(list_of_probabilities)[1], formula = paste0(list_of_probabilities[[1]], collapse = "; "), dist = "categorical")
@@ -512,58 +595,37 @@ create_synthetic_data_from_list <- function(list_of_probabilities) {
 
 synthetic_definitions <- map(
   .x = names(probabilities_for_rough_test),
-  .f = ~create_synthetic_data_from_list(probabilities_for_rough_test[[.x]])
+  .f = ~ create_synthetic_data_from_list(probabilities_for_rough_test[[.x]])
 ) %>% set_names(names(probabilities_for_rough_test))
 
 synthetic <- list()
 
-generate_data_from_definition_and_populate_categories <- function(data_definition) {  # TODO: replace variable naming! data_definition is the name of the dataset actually
+generate_data_from_definition_and_populate_categories <- function(data_definition) { # TODO: replace variable naming! data_definition is the name of the dataset actually
   synthetic_data <- genData(n = n, dtDefs = synthetic_definitions[[data_definition]])
   names(synthetic_data) %>%
-    set_names %>%
+    set_names() %>%
     map_dfc(
       .x = .,
-      .f = ~(variables[[data_definition]][[.x]][synthetic_data[[.x]]])
-      )
+      .f = ~ (variables[[data_definition]][[.x]][synthetic_data[[.x]]])
+    )
 }
 
-synthetic <- map(  # this step takes the longest
+synthetic <- map( # this step takes the longest
   .x = names(synthetic_definitions),
-  .f = ~generate_data_from_definition_and_populate_categories(.x)
+  .f = ~ generate_data_from_definition_and_populate_categories(.x)
 ) %>% set_names(names(synthetic_definitions))
 
 
 ## Assigning ids to records
 
-#To make the dataset have some semblance of realism,
-#we need to define out who the records belong to.
-#E.g. every nurse on record needs to have a
-#revaliadtion records, but can have more than one -
-#same for past jobs. Not all nurses will have fitness
-#to practice records, however.
+# To make the dataset have some semblance of realism,
+# we need to define out who the records belong to.
+# E.g. every nurse on record needs to have a
+# revaliadtion records, but can have more than one -
+# same for past jobs. Not all nurses will have fitness
+# to practice records, however.
 
 
-ids <- tibble(
-  pin = generate_unique_nmc_pins(n=n)
-)
-
-ids_leaving_and_rejoining <- tibble(
-  pin = sample(x = ids$pin, size = n_fitness_to_practice, replace = FALSE)
-)
-  
-stopifnot(n_distinct(ids$pin)==length(ids$pin))  # test that all pins are unique
-
-tibble(
-  records = rpois(n, lambda=0.5) + 1
-) %>% mutate(
-  records = if_else(records > 4, 4, records),
-  total = sum(records)
-) %>% count(records, total)
-
-ids_fitness_to_practice <-
-  tibble(
-    pin = sample(x = ids$pin, size = n_fitness_to_practice, replace = TRUE)
-  )
 
 # synthetic$personal_data <-
 #   bind_cols(
@@ -583,17 +645,72 @@ ids_fitness_to_practice <-
 
 # Save generated data as `.csv`
 
-#if (!dir.exists("./data/processed")) dir.create("./data/processed")  # create output directory
+# if (!dir.exists("./data/processed")) dir.create("./data/processed")  # create output directory
 
 walk(
   .x = names(synthetic),
-  .f = ~write_csv(x = synthetic[[.x]], path = paste0("./data/processed/", "synthetic_", .x, ".csv"))
+  .f = ~ write_csv(x = synthetic[[.x]], path = paste0("./data/processed/", "synthetic_", .x, ".csv"))
 )
 
-# read in data 
+# read in data
+synth_spine <- read.csv("./data/processed/synthetic_spine.csv")
+synth_fitness <- read.csv("./data/processed/synthetic_fitness_to_practice.csv")
+synth_personal <- read.csv("./data/processed/synthetic_personal_data.csv")
+synth_reval <- read.csv("./data/processed/synthetic_revalidation.csv")
+synth_jobs <- read.csv("./data/processed/synthetic_jobs_since_last_revalidation.csv")
+synth_leave <- read.csv("./data/processed/synthetic_leaving_and_rejoining.csv")
 
-synthftp <- read.csv("./data/processed/synthetic_fitness_to_practice.csv")
-synthpd <- read.csv("./data/processed/synthetic_personal_data.csv")
-synthr <- read.csv("./data/processed/synthetic_revalidation.csv")
-synthjr <- read.csv("./data/processed/synthetic_jobs_since_last_revalidation.csv")
-synthlr <- read.csv("./data/processed/synthetic_leaving_and_rejoining.csv")
+# View
+view(synth_spine)
+view(synth_fitness)
+view(synth_personal)
+dim(synthr)
+dim(synthjr)
+dim(synthlr)
+
+# sort
+synth_fitness$name <- str_sort(
+  synth_fitness$name,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE)
+
+synth_fitness$pin <- str_sort(
+  synth_fitness$pin,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE)
+
+synth_fitness$joined <- str_sort(
+  synth_fitness$joined,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE)
+
+view(synth_fitness)
+
+synth_personal$name <- str_sort(
+  synth_personal$name,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE)
+
+synth_personal$pin <- str_sort(
+  synth_personal$pin,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE)
+
+view(synth_fitness)
+view(synth_personal)
+
+
+# merge
+test1 <- merge(synth_personal,synth_fitness,by=c("name","pin"))
+view(test1)
+
