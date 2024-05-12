@@ -1,77 +1,53 @@
 # NMC Synthetic Data Creation & Exploration
 
-Data creation and exploration of the Nursing and Midwifery Council (NMC) revalidation records, including synthetic data generation.
+# Project Overview
+This project is developed by Michelle K Jamieson to demonstrate the process of generating synthetic datasets based on a predefined schema of nursing and midwifery council (NMC) registration data. The synthetic data aims to replicate the variability and characteristics of actual data while ensuring privacy and confidentiality.
 
-## Synthetic data
+# Repository Contents
+R Scripts: Contains the scripts for generating synthetic data using the simstudy and tidyverse libraries.
+Data Dictionary: Describes each variable included in the synthetic dataset.
+Synthetic Datasets: Sample outputs of the synthetic data generation process.
+Analysis Examples: Scripts demonstrating how to perform basic data analysis on the synthetic datasets, including survival analysis and time-to-event analysis.
 
-Using the `simstudy` package, we're creating a synthetic dataset based on the variables in the Nursing & Midwifery Council's (NMC) revalidation records on registered nurses in the UK.
+# Key Features
+Data Schema Definition: Includes demographic identifiers, registration details, employment information, and more.
+Synthetic Data Generation: Utilizes distributions and characteristics defined in the simstudy library to generate data that mimics real-world registration datasets.
+Privacy Preservation: Ensures that the synthetic data does not contain any real-world identifiable information, making it suitable for public sharing and analysis.
 
-* [`create_synthetic__nmc_variables.Rmd`](./rmd/create_synthetic_nmc_variables.Rmd) - contains a script that translates the NMC list of variables into lists/vectors of variable names; these are fed into `simstudy` to create a 'dummy' dataset to demonstrate what further analyses could be done with the NMC's data.
+# Creating the Synthetic Dataframe
+The synthetic dataset for this project was created using the simstudy and tidyverse libraries in R. Data definitions were established using defData for attributes like demographic identifiers and registration details, each with specified distribution types to emulate realistic data patterns. The dataset was then generated with the genData function, transforming numerical values into actual dates and setting factor levels for categorical variables to ensure interpretability. This method produced a detailed and realistic synthetic dataset while maintaining privacy and confidentiality.
 
-**Credit has to go to [SCADR's Jan Savinc](https://www.scadr.ac.uk/about-us/our-people/jan-savinc) - also on [GitHub](https://github.com/jsavn) - for developing the skeleton of this synthetic data creation in 2021.**
+# The Freetext Postcode Issue
+The "Postcode to Output Area" (postcode to OA) linkage is a method used to map postcodes to smaller geographic units called Output Areas (OAs). Output Areas are the smallest geographical unit for which census data is released in the UK, making them crucial for detailed spatial analysis and demographic research.
 
-## Project Structure
+## Key Features of Postcode to OA Linkage:
+Granular Mapping: Links each postcode to a corresponding Output Area, facilitating fine-grained geographic analyses.
+Census Integration: Enables the integration of detailed demographic, social, and economic data from the census with any dataset that includes postcode information.
+Versatility in Applications: Useful in a wide range of fields including public health, urban planning, marketing, and more, by allowing data to be displayed and analyzed at a small-area geographical level.
 
-I structure all my ```R``` projects in a (hopefully) open and reproducable way. This projects structure is as follows;
+## How It Works:
+Data Source: The linkage relies on a dataset provided by the UK's Office for National Statistics (ONS), which regularly updates the linkages between postcodes and Output Areas.
+Geocoding: Postcodes are geocoded to find their geographical coordinates (latitude and longitude).
+Assignment to OAs: Based on these coordinates, each postcode is assigned to an Output Area that spatially contains the postcode's location.
 
-### Overview
+## Usage:
+This linkage is particularly useful for researchers and analysts who need to:
 
-You can create this structure with [`dir_structure.R`](./scripts/dir_structure.R) in your own ```R``` project. 
+Aggregate individual-level data to Output Areas for statistical analysis or reporting.
+Analyze spatial patterns and trends at a detailed level without compromising the confidentiality of individual data.
+Combine different datasets through a common geographical identifier, enhancing the richness and utility of the data.
+The "Postcode to Output Area" linkage is a fundamental tool in geographical and demographic research in the UK, bridging the gap between raw data and actionable geographic intelligence.
 
-```
-.
-└── this_project
-    ├── data
-    │   ├── raw
-    │   ├── processed
-    │   └── metadata
-    ├── docs
-    ├── figs
-    ├── imgs
-    ├── output 
-    ├── R
-    ├── rmd
-    ├── scripts
-    ├── README.md
-    ├── Rproj
-    └── .gitignore
-```
+# Usage
+To generate synthetic data:
 
-### Project ```root```
-This is your project directory containing your ```.Rproj``` file.
+Clone this repository.
+Run the provided R scripts in an environment with R and the necessary packages installed.
+Modify the data generation parameters as needed to customize the output.
 
-### The ```data``` folder
-The ```data``` folder is, unsurprisingly, where your data goes. I store all my data in this directory. 
-
-The sub-directory called ```raw``` contains raw data files and only raw data files. These files should be treated as read only and should not be changed in any way. If you need to process/clean/modify your data do this in ```R``` **(not MS Excel)** as you can document (and justify) any changes made.
-
-Any processed data should be saved to a separate file and stored in the ```processed``` sub-directory.
-
-Information about data collection methods, details of data download and any other useful metadata should be saved in a text document in the ```metadata``` sub-directory.
-
-### The ```docs``` folder
-
-### The ```figs``` folder
-
-### The ```imgs``` folder
-
-### The ```output``` folder
-Outputs from our R scripts such as plots, HTML files and data summaries are saved in this directory. This helps us and our collaborators distinguish what files are outputs and which are source files.
-
-### The ```R``` folder
-Sometimes also called ```src```. This is an optional directory where we save all of the custom R functions we’ve written for the current analysis. These can then be sourced into R using the source() function.
-
-### The ```rmd``` folder
-An optional directory where we save our R ```markdown``` documents.
-
-### The ```scripts``` folder
-All of the main R ```scripts``` we have written for the current project are saved here.
-
-### References for Open Directory Practices 
-
-1. [R Bloggers: Structuring R Projects](https://www.r-bloggers.com/2018/08/structuring-r-projects/0)
-2. [Telethon Kids:How do you Structure your R Projects? ](https://telethonkids.wordpress.com/2019/07/24/how-do-you-organise-your-r-project-this-is-what-we-do/)
-3. [Intro2R: Directory Structures](https://intro2r.com/dir-struct.html)
-4. [Nice R Code: Designing Projects](https://nicercode.github.io/blog/2013-04-05-projects/)
-
+# Dependencies
+R
+tidyverse
+simstudy
+lubridate
 
